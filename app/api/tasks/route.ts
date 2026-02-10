@@ -11,7 +11,6 @@ export async function POST(req: Request) {
             description: body.description
         }
     });
-    console.log(NextResponse.json(task))
     return NextResponse.json(task);
 }
 
@@ -20,8 +19,7 @@ export async function GET() {
     const task = await prisma.task.findMany({
         orderBy: { createdAt: "desc", }
     });
-    
-    console.log(NextResponse.json(task));
+
 
     return NextResponse.json(task);
 }
